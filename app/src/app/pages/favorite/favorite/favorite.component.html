@@ -1,0 +1,24 @@
+<mat-toolbar class="nav-bar">
+    <mat-toolbar-row class="nav-row">
+        <div class="menu">
+            <ul class="menu-list">
+                <li>
+                    <a><span routerLink="/main">Home</span></a>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+    <div *ngFor="let video of listOfFav" class="container-item" style="margin: 0 10px 10px 10px;">
+        <iframe width="560" height="315" [src]='getSafeUrl(video.id)' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div style="width: 560px;">
+            <button mat-icon-button (click)="removeFromFavorite(video.id, video.title)" style="margin: 0 2px 0 0px;"><mat-icon>close</mat-icon></button>
+            {{video.title}}
+        </div> 
+    </div>
+    
+</div>
+
+<router-outlet></router-outlet>
