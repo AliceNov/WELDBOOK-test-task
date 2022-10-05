@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { MainModule } from './pages/main/main.module';
 import { FavoriteModule } from './pages/favorite/favorite.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialsModule } from './modules/materials/materials.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import { FavoriteModule } from './pages/favorite/favorite.module';
 
     HttpClientModule,
     MainModule,
-    FavoriteModule
+    FavoriteModule,
+    BrowserAnimationsModule,
+
+    MaterialsModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
