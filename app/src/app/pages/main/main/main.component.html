@@ -1,5 +1,36 @@
-<div *ngFor="let video of list">
-    <iframe width="560" height="315" [src]='getSafeUrl(video.id)' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p>{{video.title}}</p>
+<mat-toolbar class="nav-bar">
+    <mat-toolbar-row class="nav-row">
+        <div class="menu">
+            <ul class="menu-list">
+                <li>
+                   
+                    <mat-form-field class="input-search">
+                        <mat-label>Filter by value</mat-label>
+                        <input matInput type="search" [(ngModel)] = "inS">
+                        <button *ngIf="inS" matSuffix mat-icon-button aria-label="Clear" (click)="inS=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <a><span routerLink="/favorite">My favorites</span></a>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+    <div *ngFor="let video of list | searchpipe: inS; let i = index" class="container-item" style="margin: 0 10px 10px 10px;">
+            <iframe width="560" height="315" [src]='getSafeUrl(video.id)' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div style="width: 560px;">
+                <button mat-icon-button (click)="addToFavorite(video.id, video.title, i)" style="margin: 0 2px 0 0px;"><mat-icon>{{video.iconName}}</mat-icon></button>
+                {{video.title}}
+            </div>  
+    </div>
+    
 </div>
 
+<button (click)="loadMore()">more</button>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<router-outlet></router-outlet>

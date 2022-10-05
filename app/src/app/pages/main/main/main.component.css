@@ -1,0 +1,52 @@
+.nav-bar {
+  top: 0;
+  display: flex;
+  position: relative;
+  height: auto;
+  padding: 0 10%;
+}
+.nav-row {
+  height: auto;
+}
+.menu {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: flex-start;
+}
+.menu-list {
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 100%;
+}
+.menu-list li {
+  display: inline;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.menu-list li a {
+  padding: 10px;
+}
+.menu-list li :hover {
+  color: #686868;
+}
+.input-search {
+  width: 100%;
+}
+.container {
+  margin-top: 100px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+}
+.container__item {
+  margin: 20px;
+  padding: 20px;
+  width: 25%;
+}
+.container__item div {
+  width: 560px;
+  white-space: normal;
+}
