@@ -50,3 +50,11 @@
   width: 560px;
   white-space: normal;
 }
+.button-more {
+  margin: 20px auto;
+  width: 200px;
+}
+.button-more button {
+  font-size: 24px;
+  width: 100px;
+}
