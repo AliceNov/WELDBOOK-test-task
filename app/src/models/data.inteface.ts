@@ -1,4 +1,5 @@
 export interface IData {
+    prevPageToken: string,
     nextPageToken: string,
     items: [
         {
