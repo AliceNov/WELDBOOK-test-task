@@ -9,16 +9,20 @@ import { IData } from 'src/models/data.inteface';
 })
 export class DataService {
 
+  nextPageToken: string = '';
   constructor(private http: HttpClient) { }
 
   getListOfViodeo(): Observable<IData>{
-    let params = new HttpParams().append('part', 'snippet')
-                                 .append('chart', 'mostPopular')
-                                 .append('maxResults', '10')
-                                 .append('key', environment.apiKey);
+    let params = new HttpParams().set('part', 'snippet')
+                                 .set('chart', 'mostPopular')
+                                 .set('maxResults', '10')
+                                 .set('pageToken', this.nextPageToken)
+                                 .set('key', environment.apiKey);
     
-    let gg =  this.http.get<IData>(environment.apiYoutube, {params});
-
-    return gg;
+    return this.http.get<IData>(environment.apiYoutube, {params}).pipe(
+      tap(val => {
+        this.nextPageToken = val.nextPageToken;
+      })
+    );
   }
 }

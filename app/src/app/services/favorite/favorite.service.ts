@@ -9,7 +9,7 @@ const LOCALSTORAGE_NAME = 'favorite';
 })
 export class FavoriteService {
   
-  infoArray: Array<{id: string, title: string}>
+  infoArray: Array<{id: string, title: string}> = [];
   constructor() { }
 
   setInfo(id: string, title: string): {id: string, title: string} {
@@ -22,7 +22,7 @@ export class FavoriteService {
 
   contains(obj: {id: string, title: string}, list: Array<{id: string, title: string}> ){
     for (let i = 0; i < list.length; i++){
-      if (list[i] === obj) {
+      if (list[i].id === obj.id) {
         return true;
       }
     }
