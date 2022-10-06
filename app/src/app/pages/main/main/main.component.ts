@@ -27,10 +27,10 @@ export class MainComponent extends RxUnsubscribe implements OnInit {
    }
 
   ngOnInit(): void {
-   /* this.spinner.show()
+    this.spinner.show()
     setTimeout(()=> {
       this.spinner.hide()
-    },10000)*/
+    },10000)
     this.uploadingVideos();
   }
 
